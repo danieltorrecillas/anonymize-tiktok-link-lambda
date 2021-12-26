@@ -1,0 +1,22 @@
+{
+  "name": "anonymize-tiktok-link-lambda",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danieltorrecillas/anonymize-tiktok-link-lambda.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danieltorrecillas/anonymize-tiktok-link-lambda/issues"
+  },
+  "homepage": "https://github.com/danieltorrecillas/anonymize-tiktok-link-lambda#readme",
+  "dependencies": {
+    "axios": "^0.24.0"
+  }
+}
