@@ -1,29 +1,26 @@
-const axios = require('axios');
+const axios = require('axios')
 
 exports.handler = async event => {
-  if (!event) {
-    throw new TypeError('Malformed event')
-  }
-  if (!event.url) {
-
-  }
-  const response = await callTikTok(event.url)
+  const response = await callTikTok(event.queryStringParameters.url)
   const url = convertUrl(response)
-  return { url }
-};
+  const body = {url}
+  return {
+    statusCode: 200,
+    headers: {'Access-Control-Allow-Origin': '*'},
+    body: JSON.stringify(body)
+  }
+}
 
 async function callTikTok(url) {
-  const response = await axios.get(url, {
+  const response = await axios.head(url, {
     maxRedirects: 0,
-    validateStatus: function (status) {
-      return status === 301;
-    },
+    validateStatus: status => status === 301
   })
   return response.headers.location
 }
 
 function convertUrl(url) {
-  const largeUrl = new URL(url)
-  const shorterUrl = largeUrl.origin + largeUrl.pathname
+  const completeUrl = new URL(url)
+  const shorterUrl = completeUrl.origin + completeUrl.pathname
   return shorterUrl.split('.html')[0]
 }
