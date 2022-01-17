@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,8 @@
   "homepage": "https://github.com/danieltorrecillas/anonymize-tiktok-link-lambda#readme",
   "dependencies": {
     "axios": "^0.24.0"
+  },
+  "devDependencies": {
+    "jest": "^27.4.7"
   }
 }
