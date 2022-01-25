@@ -1,4 +1,5 @@
 const TikTokUrl = require('./TikTokUrl')
+const TikTokTrackingUrl = require('./TikTokTrackingUrl')
 const axios = require('axios')
 
 /**
@@ -32,15 +33,15 @@ class TikTokCaller {
   }
 
   /**
-   * Makes a `HEAD` request to TikTok and returns the location of the first redirect
-   * @returns {Promise<URL>}
+   * Makes a `HEAD` request to TikTok and returns the location of the first redirect wrapped in a TikTokTrackingUrl
+   * @returns {Promise<TikTokTrackingUrl>}
    */
   async call() {
     const response = await axios.head(this.#url.asString(), {
       maxRedirects: 0,
       validateStatus: status => status === 301
     })
-    return new URL(response.headers.location)
+    return new TikTokTrackingUrl(new URL(response.headers.location))
   }
 }
 

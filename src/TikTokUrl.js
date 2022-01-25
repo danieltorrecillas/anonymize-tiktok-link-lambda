@@ -1,7 +1,7 @@
 const PresentableError = require('./PresentableError')
 
 /**
- * Class representing an url to something on tiktok.com
+ * Class representing an url to something on vm.tiktok.com
  */
 class TikTokUrl {
   /**
@@ -19,8 +19,8 @@ class TikTokUrl {
     if (!(url instanceof URL)) {
       throw new PresentableError('The URL entered is not a valid URL')
     }
-    if (!url.hostname.includes('tiktok.com')) {
-      throw new PresentableError('The URL entered is not from tiktok.com')
+    if (!url.hostname.includes('vm.tiktok.com')) {
+      throw new PresentableError('The URL entered is not from vm.tiktok.com')
     }
     this.#value = url
   }

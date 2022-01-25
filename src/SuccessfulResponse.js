@@ -1,6 +1,6 @@
 /**
  * Class representing a successful response based on the required format for a Lambda response invoked by API Gateway
- * @see {@link toJson}
+ * @see {@link toAwsResponseObject}
  */
 class SuccessfulResponse {
   /**
@@ -21,7 +21,7 @@ class SuccessfulResponse {
    */
   constructor(body) {
     if (body == null) {
-      throw new TypeError('body is null or undefined.')
+      throw new TypeError('body is null or undefined')
     }
     this.#body = body
   }
@@ -39,7 +39,7 @@ class SuccessfulResponse {
    * [output format of a Lambda function for proxy integration]{@link https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html#api-gateway-simple-proxy-for-lambda-output-format}
    * @returns {{headers: {'Access-Control-Allow-Origin': string}, body: string, statusCode: number}}
    */
-  toJson() {
+  toAwsResponseObject() {
     return {
       statusCode: this.#statusCode,
       headers: this.#headers,

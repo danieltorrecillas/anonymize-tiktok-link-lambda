@@ -2,7 +2,7 @@ const TikTokTrackingUrl = require('./TikTokTrackingUrl')
 /**
  * Class to anonymize a URL
  */
-class UrlAnonymizer {
+class TikTokTrackingUrlAnonymizer {
   /**
    * @type {TikTokTrackingUrl}
    */
@@ -23,21 +23,22 @@ class UrlAnonymizer {
 
   /**
    * @param {TikTokTrackingUrl} url
-   * @returns {UrlAnonymizer}
+   * @returns {TikTokTrackingUrlAnonymizer}
    */
   static fromUrl(url) {
     return new this(url)
   }
 
   /**
-   * Removes the tracking implemented with the .html portion of the pathname
+   * Removes the tracking. Sometimes there is a .html portion to remove. But there is always a query string to remove.
    * @returns {URL}
    */
   anonymize() {
     const shorterUrl = this.#url.value.origin + this.#url.value.pathname
-    const anonymousUrl = shorterUrl.split('.html')[0]
+    const noHtmlUrl = shorterUrl.split('.html')[0]
+    const anonymousUrl = noHtmlUrl.split('?')[0]
     return new URL(anonymousUrl)
   }
 }
 
-module.exports = UrlAnonymizer
+module.exports = TikTokTrackingUrlAnonymizer

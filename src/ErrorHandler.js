@@ -16,10 +16,10 @@ class ErrorHandler {
    */
   constructor(error) {
     if (error == null) {
-      throw new TypeError('Error is null or undefined.')
+      throw new TypeError('error is null or undefined')
     }
     if (!(error instanceof Error)) {
-      throw new TypeError('Not an error')
+      throw new TypeError('error is not an Error')
     }
     this.#error = error
   }
@@ -39,9 +39,9 @@ class ErrorHandler {
   handle() {
     console.error(this.#error)
     if (this.#error instanceof PresentableError) {
-      return PresentableErrorResponse.fromError(this.#error).toJson()
+      return PresentableErrorResponse.fromError(this.#error).toAwsResponseObject()
     }
-    return UnexpectedErrorResponse.createWithDefaultBody().toJson()
+    return UnexpectedErrorResponse.createWithDefaultBody().toAwsResponseObject()
   }
 }
 

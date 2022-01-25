@@ -1,9 +1,9 @@
 const PresentableError = require('./PresentableError')
 
 /**
- * Class representing user input
+ * Class representing an AWS Event
  */
-class UserInput {
+class AwsEvent {
   /**
    * @type {URL}
    */
@@ -20,7 +20,7 @@ class UserInput {
     if (event.queryStringParameters.url === '') {
       throw new RangeError('The URL is empty.')
     }
-    this.#searchUrl = UserInput.#makeUrl(event.queryStringParameters.url.trim())
+    this.#searchUrl = AwsEvent.#makeUrl(event.queryStringParameters.url.trim())
   }
 
   /**
@@ -43,4 +43,4 @@ class UserInput {
   }
 }
 
-module.exports = UserInput
+module.exports = AwsEvent
