@@ -37,11 +37,11 @@ describe('unit', () => {
         }).toThrow(new PresentableError('The URL entered is not a valid URL'))
       })
 
-      test('when url does not belong to vm.tiktok.com', () => {
+      test('when url does not belong to www.tiktok.com', () => {
         expect(() => {
           const url = new URL('https://m.tiktok.com/v/7022710108492696837.html?_d=secCgwIARCbDRjEFSACKAESPgo')
           new TikTokUrl(url)
-        }).toThrow(new PresentableError('The URL entered is not from vm.tiktok.com'))
+        }).toThrow(new PresentableError('The URL entered is not from www.tiktok.com'))
       })
     })
   })

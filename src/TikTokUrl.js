@@ -19,8 +19,8 @@ class TikTokUrl {
     if (!(url instanceof URL)) {
       throw new PresentableError('The URL entered is not a valid URL')
     }
-    if (!url.hostname.includes('vm.tiktok.com')) {
-      throw new PresentableError('The URL entered is not from vm.tiktok.com')
+    if (!url.hostname.includes('www.tiktok.com')) {
+      throw new PresentableError('The URL entered is not from www.tiktok.com')
     }
     this.#value = url
   }
