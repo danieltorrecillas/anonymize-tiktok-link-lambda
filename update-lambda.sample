@@ -2,6 +2,8 @@
 set -e
 
 # Updates an AWS Lambda function with a .zip of required files.
+# "Required" being a directory designated as source code files and `node_modules` directory/directories required for
+# production use (`dependencies` and not `devDependencies` from the `package.json`).
 
 readonly greenColor='\033[0;32m'
 readonly noColor='\033[0m'
@@ -15,8 +17,8 @@ echo "\$ npm ls --prod --all"
 npm ls --prod --all
 declare -a necessaryNodeModules=()
 mapfile necessaryNodeModules < <(npm ls --prod --all --parseable | grep --only-matching 'node_modules/.*')
-zipCommand="zip --filesync --recurse-paths "$zipFileName" "$sourceDirectory""
 
+zipCommand="zip --filesync --recurse-paths "$zipFileName" "$sourceDirectory""
 for package in "${necessaryNodeModules[@]}"; do
   packageWithoutTrailingNewLine=$(echo "$package" | tr -d '\n')
   zipCommand+=" "$packageWithoutTrailingNewLine""
