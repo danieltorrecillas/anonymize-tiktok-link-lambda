@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+set -e
+
+# Updates an AWS Lambda function with a .zip of required files.
+
+readonly greenColor='\033[0;32m'
+readonly noColor='\033[0m'
+
+readonly functionName='YOUR_FUNCTION_NAME'
+readonly sourceDirectory='YOUR_SOURCE_DIRECTORY'
+readonly zipFileName='function-for-lambda.zip'
+
+echo -e "${greenColor}Finding files required for zip...${noColor}"
+echo "\$ npm ls --prod --all"
+npm ls --prod --all
+declare -a necessaryNodeModules=()
+mapfile necessaryNodeModules < <(npm ls --prod --all --parseable | grep --only-matching 'node_modules/.*')
+zipCommand="zip --filesync --recurse-paths "$zipFileName" "$sourceDirectory""
+
+for package in "${necessaryNodeModules[@]}"; do
+  packageWithoutTrailingNewLine=$(echo "$package" | tr -d '\n')
+  zipCommand+=" "$packageWithoutTrailingNewLine""
+done
+
+echo -e "${greenColor}Zipping required files as \"$zipFileName\"...${noColor}"
+echo "\$ "$zipCommand""
+eval "$zipCommand"
+
+echo -e "${greenColor}Updating Lambda function \"$functionName\" with \"$zipFileName\"...${noColor}"
+echo "\$ aws lambda update-function-code --function-name "$functionName" --zip-file fileb://"$zipFileName""
+aws lambda update-function-code --function-name "$functionName" --zip-file fileb://"$zipFileName"
+
+echo -e "${greenColor}Zip uploaded. Waiting for function update to complete...${noColor}"
+isCompleted=false
+until [[ "$isCompleted" = true ]]; do
+  lastUpdateStatus=$(aws lambda get-function --function-name "$functionName" --query 'Configuration.LastUpdateStatus' --output text)
+  if [[ "$lastUpdateStatus" = "Successful" ]]; then
+    isCompleted=true
+  fi
+done
+
+echo -e "${greenColor}Update complete.${noColor}"

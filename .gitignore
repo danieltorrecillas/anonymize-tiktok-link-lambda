@@ -105,4 +105,4 @@ dist
 
 *.zip
 .idea
-deploy
+update-lambda
