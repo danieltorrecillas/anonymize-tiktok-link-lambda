@@ -1,6 +1,6 @@
-const PresentableError = require('./PresentableError')
-const PresentableErrorResponse = require('./PresentableErrorResponse')
-const UnexpectedErrorResponse = require('./UnexpectedErrorResponse')
+const PresentableError = require('../PresentableError')
+const PresentableErrorResponse = require('../responses/PresentableErrorResponse')
+const UnexpectedErrorResponse = require('../responses/UnexpectedErrorResponse')
 
 /**
  * Class to handle an error

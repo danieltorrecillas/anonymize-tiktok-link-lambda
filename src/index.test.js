@@ -1,6 +1,6 @@
-const index = require('../src/index')
-const constants = require('../src/Constants')
-const EventHandler = require('../src/EventHandler')
+const index = require('./index')
+const constants = require('./Constants')
+const EventHandler = require('./handlers/EventHandler')
 
 describe('unit', () => {
   describe('handler(event)', () => {

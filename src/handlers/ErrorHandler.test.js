@@ -1,7 +1,7 @@
-const ErrorHandler = require('../src/ErrorHandler')
-const PresentableError = require('../src/PresentableError')
-const PresentableErrorResponse = require('../src/PresentableErrorResponse')
-const UnexpectedErrorResponse = require('../src/UnexpectedErrorResponse')
+const ErrorHandler = require('./ErrorHandler')
+const PresentableError = require('../PresentableError')
+const PresentableErrorResponse = require('../responses/PresentableErrorResponse')
+const UnexpectedErrorResponse = require('../responses/UnexpectedErrorResponse')
 
 describe('unit', () => {
   describe('constructor(error)', () => {

@@ -1,4 +1,4 @@
-const UnexpectedErrorResponse = require('../src/UnexpectedErrorResponse')
+const UnexpectedErrorResponse = require('./UnexpectedErrorResponse')
 
 describe('unit', () => {
   describe('constructor(body)', () => {

@@ -1,5 +1,5 @@
-const SuccessfulResponse = require('../src/SuccessfulResponse')
-const constants = require('../src/Constants')
+const SuccessfulResponse = require('./SuccessfulResponse')
+const constants = require('../Constants')
 
 describe('unit', () => {
   describe('constructor(body)', () => {

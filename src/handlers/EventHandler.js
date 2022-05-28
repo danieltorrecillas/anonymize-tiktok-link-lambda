@@ -1,8 +1,8 @@
-const AwsEvent = require('./AwsEvent')
-const TikTokUrl = require('./TikTokUrl')
-const TikTokCaller = require('./TikTokCaller')
-const TikTokTrackingUrlAnonymizer = require('./TikTokTrackingUrlAnonymizer')
-const SuccessfulResponse = require('./SuccessfulResponse')
+const AwsEvent = require('../AwsEvent')
+const TikTokUrl = require('../TikTokUrl')
+const TikTokCaller = require('../TikTokCaller')
+const TikTokTrackingUrlAnonymizer = require('../TikTokTrackingUrlAnonymizer')
+const SuccessfulResponse = require('../responses/SuccessfulResponse')
 
 /**
  * Class to handle an event

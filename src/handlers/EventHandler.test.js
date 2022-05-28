@@ -1,6 +1,6 @@
-const EventHandler = require('../src/EventHandler')
-const SuccessfulResponse = require('../src/SuccessfulResponse')
-const constants = require('../src/Constants')
+const EventHandler = require('./EventHandler')
+const SuccessfulResponse = require('../responses/SuccessfulResponse')
+const constants = require('../Constants')
 
 describe('unit', () => {
   describe('constructor(event)', () => {

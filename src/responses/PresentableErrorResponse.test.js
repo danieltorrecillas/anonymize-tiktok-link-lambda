@@ -1,4 +1,4 @@
-const PresentableErrorResponse = require('../src/PresentableErrorResponse')
+const PresentableErrorResponse = require('./PresentableErrorResponse')
 
 describe('unit', () => {
   describe('constructor(body)', () => {

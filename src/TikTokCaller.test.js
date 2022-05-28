@@ -1,7 +1,7 @@
-const TikTokCaller = require('../src/TikTokCaller')
-const TikTokUrl = require('../src/TikTokUrl')
-const TikTokTrackingUrl = require('../src/TikTokTrackingUrl')
-const constants = require('../src/Constants')
+const TikTokCaller = require('./TikTokCaller')
+const TikTokUrl = require('./TikTokUrl')
+const TikTokTrackingUrl = require('./TikTokTrackingUrl')
+const constants = require('./Constants')
 
 describe('unit', () => {
   describe('constructor(url)', () => {

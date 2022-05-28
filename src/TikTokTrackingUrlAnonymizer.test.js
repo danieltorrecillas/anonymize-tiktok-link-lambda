@@ -1,5 +1,5 @@
-const TikTokTrackingUrlAnonymizer = require('../src/TikTokTrackingUrlAnonymizer')
-const TikTokTrackingUrl = require('../src/TikTokTrackingUrl')
+const TikTokTrackingUrlAnonymizer = require('./TikTokTrackingUrlAnonymizer')
+const TikTokTrackingUrl = require('./TikTokTrackingUrl')
 
 describe('unit', () => {
   describe('constructor(url)', () => {
