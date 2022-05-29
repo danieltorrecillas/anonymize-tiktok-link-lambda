@@ -8,6 +8,11 @@ const handlers = [
       ctx.status(301),
       ctx.set('Location', url)
     )
+  }),
+  rest.head(constants.unitTestTikTokTrackingUrlWithNonExistentVideo, (req, res, ctx) => {
+    return res(
+      ctx.status(302)
+    )
   })
 ]
 

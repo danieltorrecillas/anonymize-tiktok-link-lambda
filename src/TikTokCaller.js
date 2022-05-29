@@ -1,6 +1,7 @@
+const axios = require('axios')
+const PresentableError = require('./PresentableError')
 const TikTokUrl = require('./TikTokUrl')
 const TikTokTrackingUrl = require('./TikTokTrackingUrl')
-const axios = require('axios')
 
 /**
  * Class to call TikTok and get first redirected URL
@@ -37,11 +38,16 @@ class TikTokCaller {
    * @returns {Promise<TikTokTrackingUrl>}
    */
   async call() {
-    const response = await axios.head(this.#url.asString(), {
-      maxRedirects: 0,
-      validateStatus: status => status === 301
-    })
-    return new TikTokTrackingUrl(new URL(response.headers.location))
+    try {
+      const response = await axios.head(this.#url.asString(), {
+        maxRedirects: 0,
+        validateStatus: status => status === 301
+      })
+      return new TikTokTrackingUrl(new URL(response.headers.location))
+    } catch (error) {
+      console.error(error.toJSON())
+      throw new PresentableError('Could not find a video for that URL. Please double check and try again.')
+    }
   }
 }
 
