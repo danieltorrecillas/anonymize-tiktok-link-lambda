@@ -31,7 +31,7 @@ class AwsEvent {
     try {
       return new URL(url)
     } catch {
-      throw new PresentableError('The URL entered is not a valid URL')
+      throw new PresentableError(400, 'The URL entered is not a valid URL')
     }
   }
 

@@ -7,7 +7,7 @@ class PresentableErrorResponse {
   /**
    * @type {number}
    */
-  #statusCode = 400
+  #httpStatusCode
   /**
    * @type {{'Access-Control-Allow-Origin': string}}
    */
@@ -19,18 +19,26 @@ class PresentableErrorResponse {
   #body
 
   /**
+   * @param {number} httpStatusCode
    * @param {{}} body
    */
-  constructor(body = {errorMessage: 'An error occurred'}) {
+  constructor(httpStatusCode, body = {errorMessage: 'An error occurred'}) {
+    if (httpStatusCode == null) {
+      throw new TypeError('httpStatusCode is null or undefined')
+    }
+    if (typeof httpStatusCode !== 'number') {
+      throw new TypeError('httpStatusCode is not a number')
+    }
+    this.#httpStatusCode = httpStatusCode
     this.#body = body
   }
 
   /**
-   * @param {Error} error
+   * @param {PresentableError} error
    * @returns {PresentableErrorResponse}
    */
   static fromError(error) {
-    return new this({errorMessage: error.message})
+    return new this(error.httpStatusCode, {errorMessage: error.message})
   }
 
   /**
@@ -40,7 +48,7 @@ class PresentableErrorResponse {
    */
   toAwsResponseObject() {
     return {
-      statusCode: this.#statusCode,
+      statusCode: this.#httpStatusCode,
       headers: this.#headers,
       body: JSON.stringify(this.#body)
     }

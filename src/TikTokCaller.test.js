@@ -69,7 +69,7 @@ describe('unit', () => {
 
         const trackingUrl = new URL(constants.unitTestTikTokTrackingUrlWithNonExistentVideo)
         const tikTokUrl = new TikTokUrl(trackingUrl)
-        await expect(TikTokCaller.fromUrl(tikTokUrl).call()).rejects.toEqual(new PresentableError('Could not find a video for that URL. Please double check and try again.'))
+        await expect(TikTokCaller.fromUrl(tikTokUrl).call()).rejects.toEqual(new PresentableError(404, 'Could not find a video for that URL. Please double check and try again.'))
 
         // Reset console.error to original implementation
         console.error = originalError
@@ -111,7 +111,7 @@ describe('integration', () => {
 
         const trackingUrl = new URL(constants.integrationTestTikTokTrackingUrlWithNonExistentVideo)
         const tikTokUrl = new TikTokUrl(trackingUrl)
-        await expect(TikTokCaller.fromUrl(tikTokUrl).call()).rejects.toEqual(new PresentableError('Could not find a video for that URL. Please double check and try again.'))
+        await expect(TikTokCaller.fromUrl(tikTokUrl).call()).rejects.toEqual(new PresentableError(404, 'Could not find a video for that URL. Please double check and try again.'))
 
         // Reset console.warn and console.error to original implementation
         console.warn = originalWarn

@@ -77,7 +77,7 @@ describe('unit', () => {
             }
           }
           new AwsEvent(event)
-        }).toThrow(new PresentableError('The URL entered is not a valid URL'))
+        }).toThrow(new PresentableError(400, 'The URL entered is not a valid URL'))
       })
     })
   })

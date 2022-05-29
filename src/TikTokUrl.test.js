@@ -16,32 +16,32 @@ describe('unit', () => {
       test('with null url', () => {
         expect(() => {
           new TikTokUrl(null)
-        }).toThrow(new PresentableError('The URL is missing'))
+        }).toThrow(new PresentableError(400, 'The URL is missing'))
       })
 
       test('with undefined url', () => {
         expect(() => {
           new TikTokUrl(undefined)
-        }).toThrow(new PresentableError('The URL is missing'))
+        }).toThrow(new PresentableError(400, 'The URL is missing'))
       })
 
       test('when url is not a URL', () => {
         expect(() => {
           new TikTokUrl(123456789)
-        }).toThrow(new PresentableError('The URL entered is not a valid URL'))
+        }).toThrow(new PresentableError(400, 'The URL entered is not a valid URL'))
       })
 
       test('when url is still not a URL', () => {
         expect(() => {
           new TikTokUrl(constants.unitTestTikTokTrackingUrl)
-        }).toThrow(new PresentableError('The URL entered is not a valid URL'))
+        }).toThrow(new PresentableError(400, 'The URL entered is not a valid URL'))
       })
 
       test('when url does not belong to www.tiktok.com', () => {
         expect(() => {
           const url = new URL('https://m.tiktok.com/v/7022710108492696837.html?_d=secCgwIARCbDRjEFSACKAESPgo')
           new TikTokUrl(url)
-        }).toThrow(new PresentableError('The URL entered is not from www.tiktok.com'))
+        }).toThrow(new PresentableError(400, 'The URL entered is not from www.tiktok.com'))
       })
     })
   })

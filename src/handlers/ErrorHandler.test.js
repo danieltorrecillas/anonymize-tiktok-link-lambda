@@ -7,7 +7,7 @@ describe('unit', () => {
   describe('constructor(error)', () => {
     describe('constructs successfully', () => {
       test('with a valid error', () => {
-        const error = new PresentableError('First name cannot contain numbers')
+        const error = new PresentableError(400, 'First name cannot contain numbers')
         expect(new ErrorHandler(error)).toBeInstanceOf(ErrorHandler)
       })
     })
@@ -46,7 +46,7 @@ describe('unit', () => {
           // Mock console.error so expected error output doesn't come through to the test log
           const originalError = console.error
           console.error = jest.fn()
-          const presentableError = new PresentableError('Last name cannot have numbers')
+          const presentableError = new PresentableError(400, 'Last name cannot have numbers')
           const awsResponseObjectFromPresentableErrorResponse = PresentableErrorResponse.fromError(presentableError).toAwsResponseObject()
           const handleResult = ErrorHandler.fromError(presentableError).handle()
           expect(handleResult).toEqual(awsResponseObjectFromPresentableErrorResponse)
