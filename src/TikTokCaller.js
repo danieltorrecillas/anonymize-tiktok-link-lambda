@@ -46,7 +46,7 @@ class TikTokCaller {
       return new TikTokTrackingUrl(new URL(response.headers.location))
     } catch (error) {
       console.error(error.toJSON())
-      throw new PresentableError(404, 'Could not find a video for that link. Please double check and try again.')
+      throw new PresentableError(404, 'Could not find a video for that link.\n\nPlease double check and try again.')
     }
   }
 }
