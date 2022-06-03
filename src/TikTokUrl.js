@@ -1,7 +1,7 @@
 const PresentableError = require('./PresentableError')
 
 /**
- * Class representing an url to something on vm.tiktok.com
+ * Class representing an url to something on www.tiktok.com
  */
 class TikTokUrl {
   /**
@@ -10,7 +10,7 @@ class TikTokUrl {
   #value
 
   /**
-   * @param {URL} url - A URL to something on tiktok.com
+   * @param {URL} url - A URL to something on www.tiktok.com
    */
   constructor(url) {
     if (url == null) {
