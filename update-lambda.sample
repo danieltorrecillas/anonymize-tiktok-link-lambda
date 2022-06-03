@@ -9,7 +9,7 @@ readonly greenColor='\033[0;32m'
 readonly noColor='\033[0m'
 
 readonly functionName='YOUR_FUNCTION_NAME'
-readonly sourceDirectory='YOUR_SOURCE_DIRECTORY'
+readonly sourceDirectory='src'
 readonly zipFileName='function-for-lambda.zip'
 
 echo -e "${greenColor}Finding files required for zip...${noColor}"
