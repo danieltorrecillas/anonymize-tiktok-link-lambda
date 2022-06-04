@@ -1,5 +1,5 @@
 const PresentableErrorResponse = require('./PresentableErrorResponse')
-const PresentableError = require('../PresentableError')
+const PresentableError = require('../../domain/errors/PresentableError')
 
 describe('unit', () => {
   describe('constructor(body)', () => {

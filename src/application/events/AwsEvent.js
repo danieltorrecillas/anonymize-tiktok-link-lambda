@@ -1,4 +1,4 @@
-const PresentableError = require('./PresentableError')
+const PresentableError = require('../../domain/errors/PresentableError')
 
 /**
  * Class representing an AWS Event

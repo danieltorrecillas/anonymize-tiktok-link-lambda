@@ -1,5 +1,5 @@
 const TikTokTrackingUrl = require('./TikTokTrackingUrl')
-const constants = require('./Constants')
+const constants = require('../Constants')
 
 describe('unit', () => {
   describe('constructor(url)', () => {

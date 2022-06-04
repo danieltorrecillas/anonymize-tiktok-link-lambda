@@ -1,7 +1,7 @@
-const AwsEvent = require('../AwsEvent')
-const TikTokUrl = require('../TikTokUrl')
-const TikTokCaller = require('../TikTokCaller')
-const TikTokTrackingUrlAnonymizer = require('../TikTokTrackingUrlAnonymizer')
+const AwsEvent = require('../events/AwsEvent')
+const TikTokUrl = require('../../domain/TikTokUrl')
+const TikTokCaller = require('../../domain/TikTokCaller')
+const TikTokTrackingUrlAnonymizer = require('../../domain/TikTokTrackingUrlAnonymizer')
 const SuccessfulResponse = require('../responses/SuccessfulResponse')
 
 /**

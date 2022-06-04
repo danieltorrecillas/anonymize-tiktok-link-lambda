@@ -1,4 +1,4 @@
-const PresentableError = require('../PresentableError')
+const PresentableError = require('../../domain/errors/PresentableError')
 const PresentableErrorResponse = require('../responses/PresentableErrorResponse')
 const UnexpectedErrorResponse = require('../responses/UnexpectedErrorResponse')
 

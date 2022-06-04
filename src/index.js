@@ -1,5 +1,5 @@
-const EventHandler = require('./handlers/EventHandler')
-const ErrorHandler = require('./handlers/ErrorHandler')
+const EventHandler = require('./application/handlers/EventHandler')
+const ErrorHandler = require('./application/handlers/ErrorHandler')
 
 exports.handler = async event => {
   try {

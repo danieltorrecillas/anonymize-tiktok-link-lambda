@@ -1,4 +1,4 @@
-const PresentableError = require('./PresentableError')
+const PresentableError = require('./errors/PresentableError')
 
 /**
  * Class representing an url to something on www.tiktok.com

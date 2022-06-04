@@ -1,5 +1,5 @@
 const {rest} = require('msw')
-const constants = require('../Constants')
+const constants = require('../../Constants')
 
 const handlers = [
   rest.head(constants.unitTestTikTokTrackingUrl, (req, res, ctx) => {

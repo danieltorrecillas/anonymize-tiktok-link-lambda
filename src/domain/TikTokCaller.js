@@ -1,5 +1,5 @@
 const axios = require('axios')
-const PresentableError = require('./PresentableError')
+const PresentableError = require('./errors/PresentableError')
 const TikTokUrl = require('./TikTokUrl')
 const TikTokTrackingUrl = require('./TikTokTrackingUrl')
 

@@ -1,6 +1,6 @@
 const AwsEvent = require('./AwsEvent')
-const PresentableError = require('./PresentableError')
-const constants = require('./Constants')
+const PresentableError = require('../../domain/errors/PresentableError')
+const constants = require('../../Constants')
 
 describe('unit', () => {
   describe('constructor(event)', () => {

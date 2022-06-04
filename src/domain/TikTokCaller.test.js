@@ -1,8 +1,8 @@
 const TikTokCaller = require('./TikTokCaller')
 const TikTokUrl = require('./TikTokUrl')
 const TikTokTrackingUrl = require('./TikTokTrackingUrl')
-const constants = require('./Constants')
-const PresentableError = require('./PresentableError')
+const constants = require('../Constants')
+const PresentableError = require('./errors/PresentableError')
 
 describe('unit', () => {
   describe('constructor(url)', () => {
