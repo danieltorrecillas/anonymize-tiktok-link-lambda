@@ -35,7 +35,8 @@ A "good" response is an `HTTP 200 OK` with sample JSON:
 
 where the value for `url` is the converted link.
 
-There are two kinds of "bad" responses:  
+There are two kinds of "bad" responses:
+
 1.) A video could not be found for the URL submitted. This is an
 `HTTP 404 Not Found` with JSON:
 
@@ -93,8 +94,8 @@ function. Done.
 
 ### Optional Deployment Script to AWS
 
-There is a script to update the Lambda function with a generated `.zip` of only
-required files.
+There is a script to generate a `.zip` of only required files and update the
+Lambda function with that `.zip`.
 
 #### AWS Prerequisites
 
