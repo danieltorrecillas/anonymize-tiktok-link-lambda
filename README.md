@@ -1,4 +1,4 @@
-# anonymize-tiktok-link-lambda
+# TikTok Link Anonymizer
 
 This is an [AWS Lambda function](https://aws.amazon.com/lambda) that converts a
 TikTok link embedded with user tracking into one without tracking. This function
@@ -88,12 +88,20 @@ $ npm test
 
 ## Project Deployment
 
-### AWS Prerequisites
+Create and upload a `.zip` of `/src` and required `/node_modules` to your Lambda
+function. Done.
+
+### Optional Deployment Script to AWS
+
+There is a script to update the Lambda function with a generated `.zip` of only
+required files.
+
+#### AWS Prerequisites
 
 1. You have a Lambda function with a Node.js runtime out in AWS.
 2. You have access set up so that the AWS CLI can update the function.
 
-### Deployment Script Prerequisites
+#### Deployment Script Prerequisites
 
 1. You have [bash](https://www.gnu.org/software/bash/) or a `bash` compatible
    shell installed on your local machine.
@@ -105,10 +113,10 @@ $ npm test
    CLI [configured](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)
    for your AWS account.
 
-### Deployment Script First Time Setup
+#### Deployment Script First Time Setup
 
-[update-lambda.sample](update-lambda.sample) is a script that updates a Lambda
-function with a .zip of required files. There is some one-time setup:
+[`update-lambda.sample`](update-lambda.sample) is the above-mentioned script.
+There is some one-time setup:
 
 1. Copy `update-lambda.sample` and name it `update-lambda`:
 
@@ -119,7 +127,7 @@ $ cp update-lambda.sample update-lambda
 2. In `update-lambda`, edit `'YOUR_FUNCTION_NAME'` to be the name of your Lambda
    function.
 
-### Run Deployment Script
+#### Run Deployment Script
 
 In the root of the project:
 
